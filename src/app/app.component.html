@@ -1,6 +1,5 @@
 <body>
-
-  <nav class="navbar navbar-default navbar-transparent navbar-fixed-top" color-on-scroll="200">
+  <nav class="navbar navbar-default navbar-fixed-top">
     <!-- if you want to keep the navbar hidden you can add this class to the navbar "navbar-burger"-->
     <div class="container">
       <div class="navbar-header">
@@ -10,161 +9,51 @@
           <span class="icon-bar bar2"></span>
           <span class="icon-bar bar3"></span>
         </button>
-        <a href="#" class="navbar-brand">
+        <a [routerLink]="['/']" class="navbar-brand">
           My Holiday
         </a>
       </div>
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav navbar-right navbar-uppercase">
           <li>
-            <a href="#">Home</a>
+            <a [routerLink]="['/']">Home</a>
           </li>
           <li class="dropdown">
-            <a href="#">
-               Product
+            <a [routerLink]="['/product']">
+              Product
             </a>
           </li>
-          <li>
-            <a href="#" class="btn btn-danger btn-fill">Sign In</a>
+          <li *ngIf="!this.data['token']">
+            <a [routerLink]="['/auth/login']">
+          <li class="fa fa-user-o"></li> Sign In
+          </a>
           </li>
-          <li>
-            <a href="#" class="btn btn-info btn-fill">Sign Up</a>
+          <li *ngIf="!this.data['token']">
+            <a [routerLink]="['/auth/register']">
+          <li class="fa fa-user-plus"></li> Sign Up
+          </a>
+          </li>
+
+          <li *ngIf="this.data['token']">
+            <a [routerLink]="['/profile']" style="cursor: pointer;">
+          <li class="fa fa-user"></li> Profile
+          </a>
+          </li>
+
+          <li *ngIf="this.data['token']">
+            <a [routerLink]="['/history']" style="cursor: pointer;">
+          <li class="fa fa-history"></li> History
+          </a>
+          </li>
+          <li *ngIf="this.data['token']">
+            <a (click)="Logout()" style="cursor: pointer;">
+          <li class="fa fa-sign-out"></li> Logout
+          </a>
           </li>
         </ul>
       </div>
       <!-- /.navbar-collapse -->
     </div>
   </nav>
-
-
-  <div class="section section-header">
-    <div class="parallax filter filter-color-red">
-      <div class="image" style="background-image: url('assets/img/header-1.jpeg')">
-      </div>
-      <div class="container">
-        <div class="content">
-          <div class="title-area">
-            <h1 class="title-modern">My Holiday</h1>
-            <h3>Liburan asik dan menyenangkan!</h3>
-              <div class="separator line-separator">♦</div>
-          </div>
-
-          <div class="button-get-started">
-            <a href="#" target="_blank"
-              class="btn btn-white btn-fill btn-lg ">
-              Sign In
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-
-  <div class="section">
-    <div class="container">
-      <div class="row">
-        <div class="title-area">
-          <h2>Our Services</h2>
-          <div class="separator separator-danger">✻</div>
-          <p class="description">Kami menjanjikan liburan yang dapat memuaskan anda yang dapat membuat anda lupa dengan stress ketika bekerja</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-          <div class="info-icon">
-            <div class="icon text-danger">
-              <i class="pe-7s-wallet"></i>
-            </div>
-            <h3>Murah</h3>
-            <p class="description">Nikmati dengan harga yang tidak akan membuat anda melarat</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="info-icon">
-            <div class="icon text-danger">
-              <i class="pe-7s-like"></i>
-            </div>
-            <h3>Nyaman</h3>
-            <p class="description">Kenyamanan yang tiada banding</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="info-icon">
-            <div class="icon text-danger">
-              <i class="pe-7s-star"></i>
-            </div>
-            <h3>Berkualitas</h3>
-            <p class="description">Kualitas yang tiada tanding</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-
-
-  <div class="section section-small section-get-started">
-    <div class="parallax filter">
-      <div class="image" style="background-image: url('assets/img/office-1.jpeg')">
-      </div>
-      <div class="container">
-        <div class="title-area">
-          <h2 class="text-white">Ada yang ditanyakan?</h2>
-          <div class="separator line-separator">♦</div>
-          <p class="description"> jika ada yang ingin ditanyakan silahkan contact kami karena kami berusaha untuk memberikan pelayanan terbaik untuk anda</p>
-        </div>
-
-        <div class="button-get-started">
-          <a href="#gaia" class="btn btn-danger btn-fill btn-lg">Contact Us</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <footer class="footer footer-big footer-color-black" data-color="black">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-2 col-md-offset-1 col-sm-3">
-          <div class="info">
-            <h5 class="title">Follow us on</h5>
-            <nav>
-              <ul>
-                <li>
-                  <a href="#" class="btn btn-social btn-facebook btn-simple">
-                    <i class="fa fa-facebook-square"></i> Facebook
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="btn btn-social btn-dribbble btn-simple">
-                    <i class="fa fa-dribbble"></i> Dribbble
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="btn btn-social btn-twitter btn-simple">
-                    <i class="fa fa-twitter"></i> Twitter
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="btn btn-social btn-reddit btn-simple">
-                    <i class="fa fa-google-plus-square"></i> Google+
-                  </a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div>
-      </div>
-      <hr>
-      <div class="copyright">
-        ©
-        <script> document.write(new Date().getFullYear()) </script> Yudi Gunawan
-      </div>
-    </div>
-  </footer>
-
+  <router-outlet></router-outlet>
 </body>
-
