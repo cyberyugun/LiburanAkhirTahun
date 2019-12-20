@@ -48,8 +48,6 @@ export class RegisterComponent implements OnInit {
   ngOnInit() { }
 
   async register(form: NgForm) {
-    console.log(form);
-    
     this.message = "";
 
     let EMAIL_REGEXP = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
@@ -77,16 +75,17 @@ export class RegisterComponent implements OnInit {
           } else {
             if (this.registerForm.get('name').errors==null &&this.registerForm.get('email').errors === null && this.registerForm.get('password').errors === null && this.registerForm.get('cpassword').errors === null) {
               const dialogRef = this.dialog.open(ErrorLoginComponent, {
+                data:'Register Failed',
                 width: '90%'
               });
               this.data.error(data['message']);
             }
           }
         } catch (error) {
-          if (error['error']) {'b'
-            console.log();
+          if (error['error']) {
             
             const dialogRef = this.dialog.open(ErrorLoginComponent, {
+              data:'Register Failed',
               width: '90%'
             });
           }

@@ -40,8 +40,6 @@ export class LoginComponent implements OnInit {
   ngOnInit() { }
 
   async login(form: NgForm) {
-    console.log(form);
-    
     this.message = "";
 
     let EMAIL_REGEXP = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
@@ -67,6 +65,7 @@ export class LoginComponent implements OnInit {
           } else {
             if (this.loginForm.get('email').errors === null && this.loginForm.get('password').errors === null) {
               const dialogRef = this.dialog.open(ErrorLoginComponent, {
+              data:'Either your email/password is incorrect. Please try again',
                 width: '90%'
               });
               this.data.error(data['message']);
@@ -75,6 +74,7 @@ export class LoginComponent implements OnInit {
         } catch (error) {
           if (error['error']) {
             const dialogRef = this.dialog.open(ErrorLoginComponent, {
+              data:'Either your email/password is incorrect. Please try again',
               width: '90%'
             });
           }

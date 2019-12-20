@@ -65,6 +65,7 @@ export class ForgotPasswordComponent implements OnInit {
           } else {
             if (this.forgotForm.get('email').errors === null && this.forgotForm.get('password').errors === null) {
               const dialogRef = this.dialog.open(ErrorLoginComponent, {
+                data:'Your Email not be found',
                 width: '90%'
               });
               this.data.error(data['message']);
@@ -73,6 +74,7 @@ export class ForgotPasswordComponent implements OnInit {
         } catch (error) {
           if (error['error']) {
             const dialogRef = this.dialog.open(ErrorLoginComponent, {
+              data:'Your Email not be found',
               width: '90%'
             });
           }
