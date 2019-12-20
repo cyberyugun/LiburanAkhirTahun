@@ -14,6 +14,11 @@ const routes: Routes = [
     loadChildren: './home/home.module#HomeModule'
   },
   {
+    // path : '',
+    path: 'product',
+    loadChildren: './product/product.module#ProductModule'
+  },
+  {
     path: '**',
     redirectTo: 'home'
     //redirectTo: 'dashboard',

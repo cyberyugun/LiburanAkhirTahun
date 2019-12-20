@@ -32,10 +32,19 @@ export class RestApiService {
   }
 
   link_url() {
-    return 'http://localhost:8081';
+    // return 'http://localhost:8081';
+    return 'http://localhost:3030';
   }
 
   user_getProfile() {
     return this.http.get(`${this.link_url()}/api-profile`, { headers: this.getHeaders() });
+  }
+
+  getProducts() {
+    return this.http.get(`${this.link_url()}/api-products`, { headers: this.getHeaders() });
+  }
+
+  getDetailProducts(data) {
+    return this.http.get(`${this.link_url()}/api-products/detail/`+data, { headers: this.getHeaders() });
   }
 }

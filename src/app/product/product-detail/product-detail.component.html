@@ -1,0 +1,22 @@
+<body style="margin-top: 120px;">
+    <div  style="margin: 20px;">
+        <div class="centered">
+            <h1> {{this.prods.title}} </h1>
+            <hr>
+            <div>
+                <img src="{{this.prods.imageUrl}}" alt="{{this.prods.title}}" width="100%">
+            </div>
+            <h2>Rp. {{this.prods.price}}</h2>
+            <div style="border: 1px solid black;">
+                <p>{{this.prods.description}}</p>
+                <div class="card__actions" *ngIf="!this.bookingt || !this.data['token']">
+                    <a (click)="Booking()" class="btn">Booking</a>
+                </div>
+                <div class="card__actions" *ngIf="this.bookingt && this.data['token']">
+                    <a class="btn" disabled>Telah DiBooking</a>
+                </div>
+                <h2 *ngIf="!this.data['token'] && this.bookingt">Login Dulu</h2>
+            </div>
+        </div>    
+    </div>
+</body>

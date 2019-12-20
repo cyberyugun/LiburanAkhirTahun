@@ -35,13 +35,13 @@
           </li>
 
           <li *ngIf="this.data['token']">
-            <a [routerLink]="['/profile']" style="cursor: pointer;">
+            <a [routerLink]="['/profile']" style="cursor: pointer;" class="disabled">
           <li class="fa fa-user"></li> Profile
           </a>
           </li>
 
           <li *ngIf="this.data['token']">
-            <a [routerLink]="['/history']" style="cursor: pointer;">
+            <a [routerLink]="['/history']" style="cursor: pointer;" class="disabled">
           <li class="fa fa-history"></li> History
           </a>
           </li>

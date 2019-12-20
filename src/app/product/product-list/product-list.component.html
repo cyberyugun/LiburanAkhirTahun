@@ -1,0 +1,30 @@
+<body style="margin-top: 120px;">
+        <div *ngIf="this.prods.length > 0">
+            <div class="grid">
+                <article class="card product-item" *ngFor="let product of prods;">
+                    <header class="card__header">
+                        <h1 class="product__title">
+                            {{product.title}}
+                        </h1>
+                    </header>
+                    <div class="card__image">
+                        <img src="{{product.imageUrl}}" alt="{{product.title}}">
+                    </div>
+                    <div class="card__content">
+                        <h2 class="product__price">Rp
+                            {{product.price}}
+                        </h2>
+                        <p class="product__description">
+                            {{product.shortDescription}}
+                        </p>
+                    </div>
+                    <div class="card__actions">
+                        <a [routerLink]="['/product/detail/', product.id]" class="btn">Details</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <div *ngIf="this.prods.length <= 0">
+            <h1>No Products Found!</h1>
+        </div>
+</body>
